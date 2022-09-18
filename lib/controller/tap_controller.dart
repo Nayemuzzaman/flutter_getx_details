@@ -6,6 +6,7 @@ class TapController extends GetxController {
 
   void increase() {
     _x++;
+    update();
     print(x);
   }
 }
