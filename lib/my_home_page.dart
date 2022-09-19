@@ -12,7 +12,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //instannce of TapController with getx
-    TapController controller = Get.put(TapController());
+    // TapController controller = Get.put(TapController());
+    //here no need initilize because we initial in helper folder init method
+    TapController controller = Get.find(); // this not initialization , this is finding
     return Scaffold(
       body: Container(
         width: double.maxFinite,

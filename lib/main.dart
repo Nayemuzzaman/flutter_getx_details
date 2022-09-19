@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_details/helper/init_controllers.dart' as di;
 import 'package:flutter_getx_details/my_home_page.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
+  // binding happens here 
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home:  MyHomePage(),
     );
   }
 }
