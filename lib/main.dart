@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_details/helper/init_controllers.dart' as di;
+import 'package:flutter_getx_details/helper/init_dependancy.dart';
 import 'package:flutter_getx_details/my_home_page.dart';
 import 'package:get/get.dart';
 
 Future<void> main() async {
   // binding happens here 
-  WidgetsFlutterBinding.ensureInitialized();
-  await di.init();
+  //WidgetsFlutterBinding.ensureInitialized(); /*when use InitDependency, no needed*/
+  //await di.init();  /*when use InitDependency, no needed*/
   runApp(const MyApp());
 }
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: InitDependency(), // when use InitDependency class rather than init_controller.dart init method()
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.

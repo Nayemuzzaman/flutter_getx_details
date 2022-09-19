@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 child: Center(
                     child: Text(
-                  "tap",
+                  "Increase value",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
