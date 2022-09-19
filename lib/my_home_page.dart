@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_getx_details/controller/tap_controller.dart';
 import 'package:flutter_getx_details/first_page.dart';
+import 'package:flutter_getx_details/second_page.dart';
 import 'package:get/get.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -71,7 +72,7 @@ class MyHomePage extends StatelessWidget {
             //Next pages show container with Getx
             GestureDetector(
               onTap: () {
-                Get.to(()=>FirstPage());
+                Get.to(() => FirstPage());
               },
               child: Container(
                 margin: const EdgeInsets.all(20),
@@ -90,9 +91,11 @@ class MyHomePage extends StatelessWidget {
                   ),
                 )),
               ),
-            ), 
+            ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => SecondPage());
+              },
               child: Container(
                 margin: const EdgeInsets.all(20),
                 width: double.maxFinite,
@@ -103,7 +106,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 child: Center(
                     child: Text(
-                  "tap",
+                  "Go 2nd Page",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
