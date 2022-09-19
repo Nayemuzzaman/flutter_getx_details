@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 //clickable to call increase method
-                controller.increase();
+                controller.increaseX();
               },
               child: Container(
                 margin: const EdgeInsets.all(20),
@@ -90,7 +90,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 )),
               ),
-            ),
+            ), 
             GestureDetector(
               onTap: () {},
               child: Container(
