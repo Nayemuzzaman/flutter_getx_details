@@ -8,4 +8,8 @@ class ListController extends GetxController {
     _list.add(x);
     print(_list);
   }
+
+  String getValues() {
+    return _list.string;
+  }
 }

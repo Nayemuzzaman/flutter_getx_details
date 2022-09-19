@@ -4,7 +4,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 class TapController extends GetxController {
   int _x = 0;
   int get x => _x;
-
+// using RxInt no update needed 
   RxInt _y = 0.obs;
   RxInt get y => _y;
   RxInt _z = 0.obs;
@@ -12,6 +12,7 @@ class TapController extends GetxController {
 
   void totalXY() {
     _z.value = x + _y.value;
+    update();
     print(_z.value);
   }
 

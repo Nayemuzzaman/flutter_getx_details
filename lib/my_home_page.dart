@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_getx_details/controller/list_controller.dart';
 import 'package:flutter_getx_details/controller/tap_controller.dart';
 import 'package:flutter_getx_details/first_page.dart';
 import 'package:flutter_getx_details/second_page.dart';
@@ -14,7 +15,9 @@ class MyHomePage extends StatelessWidget {
     //instannce of TapController with getx
     // TapController controller = Get.put(TapController());
     //here no need initilize because we initial in helper folder init method
-    TapController controller = Get.find(); // this not initialization , this is finding
+    TapController controller =
+        Get.find(); // this not initialization , this is finding
+    ListController listController = Get.find();
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -61,7 +64,7 @@ class MyHomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: Color(0xFF89dad0),
                 ),
-                child: Center(
+                child: const Center(
                     child: Text(
                   "Increase value",
                   style: TextStyle(
@@ -82,9 +85,9 @@ class MyHomePage extends StatelessWidget {
                 height: 100,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color(0xFF89dad0),
+                  color: const Color(0xFF89dad0),
                 ),
-                child: Center(
+                child: const Center(
                     child: Text(
                   "Go 1st Page",
                   style: TextStyle(
@@ -117,24 +120,30 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                width: double.maxFinite,
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Color(0xFF89dad0),
+                onTap: () {},
+                //obx using RXInt uses in ListController & no update function call
+                // no getbuilder call here 
+                child: Obx((() => Container(
+                    margin: const EdgeInsets.all(20),
+                    width: double.maxFinite,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xFF89dad0),
+                    ),
+                    child: Center(
+                        child: Text(
+                      //Get.find<TapController>().z.toString()
+
+                      "tap" + listController.list.value.toString(),
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    )),
+                  ))
+               
                 ),
-                child: Center(
-                    child: Text(
-                  "tap",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                )),
-              ),
             ),
           ],
         ),
